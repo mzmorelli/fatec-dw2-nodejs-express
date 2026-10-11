@@ -1,20 +1,24 @@
-import connection from '../config/sequelize-config.js';
-import Sequelize from 'sequelize';
+//Importando arquivo de conexão
+import connection from "../config/sequelize-config.js";
+//Importando sequelize
+import  Sequelize  from "sequelize";
 
-const Produto = connection.define('produtos', {
+//Definindo a estrutura da tabela no banco
+const Produto = connection.define('produtos',{
     nome: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
     preco: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: false,
     },
     categoria: {
         type: Sequelize.STRING,
-        allowNull: false
-    }
+        allowNull: false,
+    },
 })
 
-Produto.sync({force: false});
+Produto.sync({force:false});
+
 export default Produto;
